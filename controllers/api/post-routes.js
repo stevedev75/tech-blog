@@ -4,9 +4,6 @@ const sequelize = require('../../config/connections');
 const withAuth = require('../../utils/auth');
 const { classToInvokable } = require('sequelize/types/lib/utils');
 
-
-// add "Read" (GET) Route and "Update" (PUT) Route ?? //
-
 // GET ALL POSTS //
 
 router.get('/', (req, res) => {
