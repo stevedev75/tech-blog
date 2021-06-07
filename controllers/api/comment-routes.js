@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 const { get } = require('./user-routes');
 
 // GET COMMENTS //
-router / get('/', (req, res) => {
+router.get('/', (req, res) => {
     Comment.findAll()
         .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {

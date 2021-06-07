@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('./../config/connections');
+const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 
@@ -28,48 +28,7 @@ router.get('/', (req, res) => {
             }
         ]
     })
-        .then(dbPostData => res.json(dbPostData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        })
 
-        .catch(err => {
-            console.log(err);
-            res.status(roo).json(err);
-        });
-});
-
-// ------ //
-
-router.get('/edit/:id', withAuth, (req, res) => {
-    Post.findOne({
-        where: {
-            id: req.params.id
-        },
-
-        attributes: [
-            'id',
-            'post-text',
-            'title',
-            'created_at',
-        ],
-
-        include: [
-            {
-                model: User,
-                attributes: ['username']
-            },
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            }
-        ]
-    })
         .then(dbPostData => {
             const posts = dbPostData.map(post => post.get({ plain: true }));
             res.render('homepage', {
@@ -83,7 +42,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
         });
 });
 
-// ----------- //
 
 router.get('/post/:id', (req, res) => {
     Post.findOne({
@@ -128,7 +86,6 @@ router.get('/post/:id', (req, res) => {
         });
 });
 
-//-------------//
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {

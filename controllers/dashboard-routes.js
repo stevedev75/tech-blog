@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { runInNewContext } = require('node:vm');
-const sequelize = require('./../config/connections');
+//const { runInNewContext } = require('node:vm');
+const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth')
 
