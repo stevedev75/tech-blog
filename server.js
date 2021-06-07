@@ -10,6 +10,16 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const hbs = exphbs.create({ helpers });
 
+ const sess = {
+  secret: process.env.DB_SESSION_SECRET,
+  cookie: { maxAge: 7200000 },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+ };
+
 const app = express();
 const PORT = process.env.PORT || 3031;
 
