@@ -21,13 +21,15 @@ router.get('/', (req, res) => {
 
  
 router.post('/', withAuth, (req, res) => {
+
+  console.log(req.session.loggedIn)
  
-  if (req.session) {
+  if (req.session.loggedIn) {
     Comment.create({
       comment_text: req.body.comment_text,
       post_id: req.body.post_id,
    
-      user_id: req.session.user_id
+      user_id: req.session.userId
     })
       .then(dbCommentData => res.json(dbCommentData))
       .catch(err => {

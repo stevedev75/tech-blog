@@ -12,7 +12,7 @@ router.get('/', withAuth, (req, res) => {
     Post.findAll({
       where: {
    
-        user_id: req.session.user_id
+        user_id: req.session.userId
       },
       attributes: [
         'id',
@@ -98,7 +98,7 @@ router.get('/edituser', withAuth, (req, res) => {
     attributes: { exclude: ['password'] },
     where: {
   
-      id: req.session.user_id
+      id: req.session.userId
     }
   })
     .then(dbUserData => {
