@@ -15,7 +15,7 @@ Please see the screenshots below for a preview of the UI:
 ![image](https://user-images.githubusercontent.com/77076615/121524508-624ebe00-c9c5-11eb-8480-ff63d2bdc91c.png)
 
 Please see the deployed application on Heroku:
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+https://fast-savannah-49002.herokuapp.com/
 
 Please see the link to my GitHub repository for the code:
 https://github.com/stevedev75/tech-blog
